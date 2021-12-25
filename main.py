@@ -10,7 +10,8 @@ parser.add_argument('--feed', default='Base', help='Which feed to use. Currently
 parser.add_argument('prefix', help='Prefix for the patch name. e.g. "U39".') # Prefix seems to only be available in-game.
 parser.add_argument('--entries', '-n', help='Number of updates to be fetched.', dest='entries', default=1, type=int)
 
-args = parser.parse_args()
+if __name__ == '__main__':
+	args = parser.parse_args()
 
 # Which update feed to query updates from? 'Base'/'SO'
 FEED = args.feed #'Base'
@@ -360,10 +361,10 @@ def getLatest(n, feed):
 		item['out'] = out + item['data'] + '\n{{VersionInfoFooter}}'
 	return latest[1:n+1]
 
-
-phraseMap = None
-result = getLatest(LATEST_N, FEED)
-print('start\n', str(result))
-for update in result:
-	with open('out/' + str(update['build']) + '.txt', 'w') as file:
-		file.write(update['out'])
+if __name__ == '__main__':
+	phraseMap = None
+	result = getLatest(LATEST_N, FEED)
+	print('start\n', str(result))
+	for update in result:
+		with open('out/' + str(update['build']) + '.txt', 'w') as file:
+			file.write(update['out'])
