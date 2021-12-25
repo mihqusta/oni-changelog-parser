@@ -1,6 +1,3 @@
-
-
-
 from html.parser import HTMLParser
 import urllib.request as req
 import re
@@ -9,18 +6,20 @@ import json
 
 import argparse
 parser = argparse.ArgumentParser(description='This is a script to scrape and parse oxygen not included patchnotes into wikicode')
-parser.add_argument('--feed', default='Base')
-parser.add_argument('--prefix', default='U34')
-parser.add_argument('--entries', '-n', dest='entries', default=1, type=int)
+parser.add_argument('--feed', default='Base', help='Which feed to use. Currently, the only one is "Base"')
+parser.add_argument('prefix', help='Prefix for the patch name. e.g. "U39".') # Prefix seems to only be available in-game.
+parser.add_argument('--entries', '-n', help='Number of updates to be fetched.', dest='entries', default=1, type=int)
 
 args = parser.parse_args()
 
 # Which update feed to query updates from? 'Base'/'SO'
 FEED = args.feed #'Base'
+
 # Version prefix is automatically set to 'EX1' for the SO feed. Set it here for Base.
-PREFIX = args.prefix #'U34'
+PREFIX = args.prefix
+
 # Number of most recent items to process from the feed.
-LATEST_N = args.entries #2 
+LATEST_N = args.entries
 
 
 class InfoParser(HTMLParser):
