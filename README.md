@@ -12,17 +12,17 @@ python3 main.py [-h] [--feed FEED] [-n ENTRIES] prefix
 
 ##### Examples:
 
-> python main.py U39
+> $ python main.py U39
 
 fetch the latest update, use the prefix 'U39' for update name
 
-> python main.py -n 10 U40
+> $ python main.py -n 10 U40
 
 fetch the latest 10 updates
 
-> python main.py --feed Some_Expansion EX2
+> $ python main.py --feed Some_Expansion EX2
 
-fetch the latest
+fetch the latest update for some future expansion development feed
 
 
 
