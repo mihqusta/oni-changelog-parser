@@ -2,9 +2,29 @@
 
 This tool aims to assist in creating update logs for the Oxygen Not Included Wiki.
 
-It is not fully automatic. The posts on the official update channel are not semantically sound, so mistakes are unavoidable. Read through the output! There are quick configuration constants at the top of the script, you might find you want to tinker with the code. Please share your progress! An executable is not shipped for this reason.
+It is not fully automatic. The posts on the official update channel are not semantically sound, so mistakes are unavoidable. Read through the output! There are quick configuration constants at the top of the script, you might find you want to tinker with the code. Please share your progress!
 
 The program outputs text files in the `./out/` directory.
+
+##### Usage:
+
+python3 main.py [-h] [--feed FEED] [-n ENTRIES] prefix
+
+##### Examples:
+
+> python main.py U39
+
+fetch the latest update, use the prefix 'U39' for update name
+
+> python main.py -n 10 U40
+
+fetch the latest 10 updates
+
+> python main.py --feed Some_Expansion EX2
+
+fetch the latest
+
+
 
 ## `phrasemap.json`
 
